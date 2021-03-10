@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="header__wrapper">
+			<div class="header__title">
+				<h1>Сегодня</h1>
+			</div>
+			<div class="header__burger">
+				<img src="img/more.png" >
+				<span></span>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="to-do-list">
+			<div class="to-do-item example">
+				<div class="to-do-item__wrapper">
+					<div class="radio-button">
+						<div class="radio-button__wrapper">
+							<label class="radio-button__real"><label class="radio-button__dot"></label></label>
+							<input type="radio" class="radio-button__fake task-list">
+						</div>
+					</div>
+					<div class="to-do-item__content">
+						<div>
+							<p class="to-do-item__text">Начать писать курсовую</p>
+							<span class="to-do-item__time"></span>
+						</div>
+						<div class="color-circle">
+							<div class="color-circle__wrapper">
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="to-do-list__wrapper">
+				
+			</div>
+		</div>
+		<div class="categories">
+			<div class="categories__wrapper">
+				<div class="categories__title">
+					<h4>Списки дел</h4>
+				</div>
+				<div class="category-item example">
+					<div class="category-item__wrapper">
+						<h2>Разное</h2>
+						<h5><span>1 задача</span></h5>
+					</div>
+				</div>
+				<div class="categories__contain">
+					
+				</div>
+			</div>
+		</div>
+	</main>
+	<div class="modal-window">
+		<div class="modal-window__wrapper">
+			<div class="modal-window__button">
+				<div class="modal-window__button_item"></div>
+			</div>
+			<div class="modal-window__window">
+				<div class="modal-window__choice">
+					<ul>
+						<li>
+							<!-- <img src="img/.svg" alt=""> -->
+							<h3 class="add-new-task">Добавить напоминание</h3>
+						</li>
+						<li>
+							<!-- <img src="img/.svg" alt=""> -->
+							<h3 class="add-new-category">Добавить категорию</h3>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="new-task">
+		<div class="new-task__wrapper">
+			<div class="new-task__header">
+				<button id="cancel">Cancel</button>
+				<button id="done">Done</button>
+			</div>
+			<div class="new-task__content">
+				<div class="radio-button">
+					<div class="radio-button__wrapper">
+						<label class="radio-button__real"><label class="radio-button__dot"></label></label>
+						<input type="radio" class="radio-button__fake">
+					</div>
+				</div>
+				<div class="new-task__input">
+					<input id="" maxlength="255" placeholder="What do you want to do?"></input>
+					<div>
+						<span id="input-date">Today</span><span id="input-time">7:00</span>
+					</div>
+				</div>
+				
+				<div class="color-circle">
+					<div class="color-circle__wrapper">
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="settings">
+				<div class="settings__wrapper">
+					<div class="settings__header">
+						<div class="settings__date-time">
+							<button>
+								<img src="img/Calendar.svg" alt="" class="button" id="calendar">
+							</button>
+							<button>
+								<img src="img/Alarm.svg" alt="" class="button" id="alarm">
+							</button>
+						</div>
+						<div class="settings__category" id="choose_category">
+							<p>Разное</p>
+							<div class="color-circle">
+								<div class="color-circle__wrapper">
+									<div></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="settings__main">
+						<input type="date" id="settings-date">
+						<input type="time" id="settings-time">
+						<div class="settings__categories" id="settings-category"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="new-category">
+		<div class="new-category__wrapper">
+			<div class="new-category__header">
+				<button id="cancel">Cancel</button>
+				<button id="done">Done</button>
+			</div>
+			<div class="new-category__inputs">
+				<input type="text" id="name" placeholder="Enter the name of your category">
+				<div>
+					<h3>Choose color: </h3>
+					<input type="color" id="color">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="select-date">
+		<div class="select-date__wrapper">
+			<h2>Выберите дату</h2>
+			<input type="date" id="select-date">
+		</div>
+	</div>
+	<script src="source/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,629 @@
+$green: #61dea4;
+$grey: #d3d4d8;
+$light-blue: #eceff6;
+$purple: #b678ff;
+$yellow: #ffe761;
+$red: #f55e6d;
+$blue: #006dfe;
+$dark-blue: #00193b;
+
+$text-color: #252932;
+$padding-left: 50px;
+
+
+*{margin: 0;padding: 0;list-style: none;text-decoration: none;}
+p, a, h1, h2, h3, h4, h5, h6, label, li, span{font-family: arial;}
+button{background: none; border: none; outline: none;}
+
+
+
+
+body{
+	position: relative;
+	&.active{
+		overflow: hidden;
+	}
+}
+h1{
+	font-size: 30px;
+}
+h2{
+	font-size: 20px;
+}
+h3{
+	color: $blue;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.4s;
+	&:hover{
+		color: $dark-blue;
+		transition: 0.4s;
+	}
+}
+p{
+	font-size: 14px;
+}
+h4{
+	font-size: 14px;
+	font-weight: normal;
+	color: $grey;
+}
+
+
+%to-do-radio{
+	$size: 20;
+	width: $size + px;
+	height: $size + px;
+	label{
+		width: $size / 3 * 2 + px;
+		height: $size / 3 * 2 + px;
+		top: 16%;
+		left: 16%;
+	}
+}
+%to-do-dots{
+	width: 10px;
+	height: 10px;
+}
+
+// Маленькие блоки
+.category-item{
+	&{
+		display: flex;
+		justify-content: center;
+	}
+	&__wrapper{
+		width: 100%;
+		border-radius: 10px;
+		margin-bottom: 5px;
+		margin-right: 10px;
+		padding: 10px;
+		cursor: pointer;
+		span{
+			opacity: 0.6;
+		}
+		
+	}
+	&__color{
+		font-weight: normal;
+	}
+}
+.color-circle{
+	&__wrapper{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 30px;
+		min-height: 30px;
+		& > div{
+			border-radius: 50%;
+			@extend %to-do-dots;
+			background-color: #b33434;
+		}
+	}
+}
+.radio-button{
+	&__wrapper{
+		width: 100%;
+		height: 100%;
+		min-width: $padding-left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		padding-bottom: 3px;
+	}
+	&__fake{
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		@extend %to-do-radio;
+	}
+	&__real{
+		border: 2px solid $grey;
+		border-radius: 50%;
+		position:relative;
+		transition: 0.4s;
+		@extend %to-do-radio;
+	}
+	&__dot{
+		opacity: 0;
+		background-color: $grey;
+		border-radius: 50%;
+		position: absolute;
+		transition: 0.4s;
+		&.active{
+			opacity: 1;
+			transition: 0.4s;
+		}
+	}
+}
+
+// Основные блоки
+.header{
+	&__wrapper{
+		display: flex;
+		justify-content: space-between;
+		padding: 15px 0 15px $padding-left;
+	}
+	&__title{}
+	&__burger{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+	}
+}
+.to-do-list{
+	&__wrapper{
+		font-weight: bold;
+		padding-bottom: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.to-do-item{
+	&__wrapper{
+		display: flex;
+		width: 100%;
+	}
+	&__text{
+		font-size: 18px;
+		font-weight: normal;
+	}
+	&__status{
+		min-width: $padding-left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		padding-bottom: 3px;
+		input{
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+		}
+		.real-radio{
+			border: 2px solid $grey;
+			border-radius: 50%;
+			position:relative;
+			transition: 0.4s;
+			.real-radio-dot{
+				display: none;
+				background-color: $grey;
+				border-radius: 50%;
+				position: absolute;
+				transition: 0.4s;
+			}
+		}
+		input, .real-radio{
+			@extend %to-do-radio;
+		}
+
+	}
+	&__content{
+		border-bottom: 1px solid $grey;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 15px 0;
+		transition: 0.4s;
+		&.active{
+			text-decoration: line-through;
+			color: #00000077;
+		}
+	}
+	&__circle{
+		display: flex;
+		justify-content: center;
+		min-width: 30px;
+		& > div{
+			border-radius: 50%;
+			@extend %to-do-dots;
+			background-color: $green;
+		}
+	}
+	&__time{
+		font-size: 14px;
+		font-weight: normal;
+		opacity: 0.3;
+		display: flex;
+		&:not(:empty):before{
+			content: " ";
+			display: block;
+			width: 14px;
+			background-image: url(../img/clock.svg);
+			background-repeat: no-repeat;
+			height: 14px;
+			padding-right: 5px;
+		}
+	}
+	
+}
+
+.categories{
+	&__wrapper{
+		padding-left: $padding-left;
+	}
+	&__title{
+		padding-bottom: 10px;
+	}
+}
+
+
+
+.modal-window{
+	position: absolute;
+	top: 0;
+	left: 0;
+	&__wrapper{	
+	}
+	&__button{
+		z-index: 1;
+		background-color: white;
+		border-radius: 50%;
+		position: fixed;
+		bottom: 3%;
+		right: 5%;
+		width: 63px;
+		height: 65px;
+		cursor: pointer;
+		box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.9);
+		transition: 0.4s;
+		&_item{
+			top: 51%;
+			position: absolute;
+		}
+		&_item:before {
+			top: -3px;
+			left: 11.5px;
+			width: 40px;
+			height: 6px;
+		}
+		&_item:after {
+			top: -20px;
+			left: 28.5px;	
+			width: 6px;
+			height: 40px;
+		}
+		&_item:before,
+		&_item:after {
+			border-radius: 10%;
+			content: '';
+			position:absolute;
+			background: $blue;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			transition:0.5s;
+		}
+		&.active{
+			background-color: #000000aa;
+			transition: 0.4s;
+			box-shadow: none;
+		}
+		&.active &_item{
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+		}
+		&.active &_item:before{
+			background: #fff;
+			top: -2px;
+			transform:rotate(315deg);
+		}
+		&.active &_item:after{
+			background: #fff;
+			transform:rotate(315deg);
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+	}
+	&__window{
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		top: 100%;
+		left: 0;
+		background-color: #00000070;
+		height: 100vh;
+		width: 100%;
+		transition: 0.4s;
+		&.active{
+			top: 0;
+			transition: 0.4s;
+		}
+	}
+	&__choice{
+		position: absolute;
+		max-width: 200px;
+		max-height: 300px;
+		padding: 10px;
+		background-color: #fff;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		& ul{
+			display: flex;
+			flex-direction: column;
+			& li{
+				display: flex;
+				&:not(:last-child){
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+.new-task{
+	&{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__wrapper{
+		-webkit-box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		z-index: 1;
+		top: 120%;
+		position: fixed;
+		background-color: #fff;
+		height: 100vh;
+		width: 100%;
+		transition: 0.4s;
+		&.active{
+			top: 0;
+			transition: 0.4s;
+		}
+	}
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 20px;
+		& button{
+			color: $blue;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 12px;
+			&:focus{
+				border: 2px solid $blue;
+				border-radius: 5px;
+				padding: 10px;
+			}
+		}
+	}
+	&__content{
+		display: flex;
+		align-items: center;
+	}
+	&__input{
+		width: 100%;
+		& input{
+			outline: none;
+			border: none;
+			width: 100%;
+			font-size: 16px;
+			padding-bottom: 2px;
+			&:focus{
+				padding-bottom: 0;
+				border-bottom: 2px solid $blue;
+			}
+		}
+		div{
+			display: flex;
+		}
+		& span{
+			color: $grey;
+			display: flex;
+			padding-right: 5px;
+			align-items: center;
+		}
+		& span:first-child:not(:empty):before{
+			padding-right: 5px;
+			content: "";
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			background-size: contain;
+			background-image: url(../img/Calendar.svg);
+			background-repeat: no-repeat;
+		}
+		& span:nth-child(2):not(:empty):before{
+			padding-right: 5px;
+			content: "";
+			display: inline-block;
+			width: 19px;
+			height: 19px;
+			background-size: contain;
+			background-image: url(../img/Alarm.svg);
+			background-repeat: no-repeat;
+		}
+	}
+}
+.settings{
+	&__wrapper{
+		position: absolute;
+		width: 100%;
+		top: 95%;
+		transition: 0.4s;
+		&.active{
+			top:30%;
+			transition: 0.4s;
+		}
+	}
+	&__header{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__main{
+		display: none;
+		&.active{
+			box-sizing: border-box;
+			display: flex;
+			& input#settings-date,& input#settings-time,& #settings-category{
+				display: none;
+				&.active{
+					width: 100%;
+					display: block;
+				}
+			}
+			& input#settings-date,& input#settings-time{
+				&.active{
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	&__date-time{
+		display: flex;
+		align-items: center;
+		& button{
+			cursor: pointer;
+			padding: 2px;
+			
+			&:focus{
+				border: 2px solid $blue;
+				border-radius: 5px;
+				padding: 0px;
+			}
+			
+		}
+		& #alarm{
+			&.active{
+				content: url(../img/Alarm_active.svg);
+			}
+		}
+		& #calendar{
+			&.active{
+				content: url(../img/Calendar_active.svg);
+			}
+		}
+	}
+	&__category{
+		cursor: pointer;
+		color: $grey;
+		display: flex;
+		align-items: center;
+		padding: 2px;
+		&.active p{
+			color: $blue;
+			font-weight: bold;
+		}
+		&:focus{
+			border: 2px solid $blue;
+			border-radius: 5px;
+			padding: 0px;
+		}
+	}
+	&__categories{
+		position: relative;
+		height: 400px;
+		overflow-y: scroll;
+	}
+}
+.select-date{
+	&{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__wrapper{
+		z-index: 1;
+		top: 100%;
+		position: fixed;
+		background-color: #fff;
+		height: 100vh;
+		width: 100%;
+		transition: 0.4s;
+		display: flex;
+		-webkit-box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		flex-direction: column;
+		align-items: center;
+		&.active{
+			top: 10%;
+			transition: 0.4s;
+		}
+		& > *{
+			margin-top: 20px;
+		}
+		& input{
+			max-width: 200px;
+		}
+	}
+}
+.new-category{
+	&{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__wrapper{
+		-webkit-box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
+		z-index: 1;
+		top: 120%;
+		position: fixed;
+		background-color: #fff;
+		height: 100vh;
+		width: 100%;
+		transition: 0.4s;
+		&.active{
+			top: 0;
+			transition: 0.4s;
+		}
+	}
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 20px;
+		& button{
+			color: $blue;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 12px;
+			&:focus{
+				border: 2px solid $blue;
+				border-radius: 5px;
+				padding: 10px;
+			}
+		}
+	}
+	&__inputs{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left: 12px;
+		width: 50%;
+		& input{
+			outline: none;
+			border: none;
+			font-size: 16px;
+			padding-bottom: 2px;
+			margin-bottom: 10px;
+			&:focus{
+				padding-bottom: 0;
+				border-bottom: 2px solid $blue;
+			}
+		}
+		& > input{
+			width: 100%;
+		}
+		& > div{
+			display: flex;	
+			width: 100%;
+		}
+	}
+}
+.example{
+	display: none;
+}
+@media screen and (max-width: 360px) {	
+}
