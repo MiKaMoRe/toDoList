@@ -219,12 +219,12 @@ function select_date_event(){
 /***********************************************************/
 
 // Основные переменные
-let viewTasklist = []
-let dateNow = new Date()
-let categories_list = []
-let setting_category = 'Разное'
-let timeNow = dateNow.getHours() + ':' + dateNow.getMinutes()
-dateNow = dateNow.getDate() + '.' +  (dateNow.getMonth() + 1) + '.' + dateNow.getFullYear()
+let viewTasklist = [];
+let dateNow = new Date();
+let categories_list = [];
+let setting_category = 'Разное';
+let timeNow = dateNow.getHours() + ':' + dateNow.getMinutes();
+dateNow = dateNow.getDate() + '.' +  (dateNow.getMonth() + 1) + '.' + dateNow.getFullYear();
 
 /************************************************************/
 /************************* Actions **************************/
