@@ -447,6 +447,7 @@ h4{
 .settings{
 	&__wrapper{
 		position: absolute;
+		max-width: 100%;
 		width: 100%;
 		top: 90%;
 		transition: 0.4s;

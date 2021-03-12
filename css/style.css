@@ -481,6 +481,7 @@ h4 {
 
 .settings__wrapper {
   position: absolute;
+  max-width: 100%;
   width: 100%;
   top: 90%;
   -webkit-transition: 0.4s;
