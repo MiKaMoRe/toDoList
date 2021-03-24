@@ -359,9 +359,6 @@ h4{
 
 .new-task{
 	&{
-		position: absolute;
-		top: 0;
-		left: 0;
 	}
 	&__wrapper{
 		-webkit-box-shadow: 0px -4px 19px 0px rgba(50, 50, 50, 0.75);
@@ -446,8 +443,7 @@ h4{
 }
 .settings{
 	&__wrapper{
-		position: absolute;
-		max-width: 100%;
+		position: relative;
 		width: 100%;
 		top: 90%;
 		transition: 0.4s;
