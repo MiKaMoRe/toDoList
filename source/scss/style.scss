@@ -146,7 +146,14 @@ h4{
 		justify-content: space-between;
 		padding: 15px 0 15px $padding-left;
 	}
-	&__title{}
+	&__title{
+		cursor: pointer;
+		transition: 0.4s;
+		&:hover{
+			color: $blue;
+			transition: 0.4s;
+		}
+	}
 	&__burger{
 		display: flex;
 		justify-content: center;
@@ -443,9 +450,9 @@ h4{
 }
 .settings{
 	&__wrapper{
-		position: relative;
+		position: absolute;
 		width: 100%;
-		top: 90%;
+		top: 94%;
 		transition: 0.4s;
 		&.active{
 			top:30%;

@@ -146,6 +146,17 @@ h4 {
   justify-content: space-between;
   padding: 15px 0 15px 50px; }
 
+.header__title {
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s; }
+  .header__title:hover {
+    color: #006dfe;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s; }
+
 .header__burger {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -475,9 +486,9 @@ h4 {
     background-repeat: no-repeat; }
 
 .settings__wrapper {
-  position: relative;
+  position: absolute;
   width: 100%;
-  top: 90%;
+  top: 94%;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s; }

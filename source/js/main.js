@@ -186,6 +186,9 @@ function settings_events(){
 	});
 }
 function category_events(){
+	$('.header__title').addEventListener("click", event => {
+		printTasks($(".to-do-list__wrapper"), $(".to-do-item.example"))
+	})
 	$$('.category-item__wrapper.filter').forEach((block, key) => {
 		block.addEventListener("click", e => {
 			$(".to-do-list__wrapper").innerHTML = "";
@@ -311,9 +314,9 @@ addNewCategory("Разное", "#b33434")
 addNewCategory("Работа", "#b3b3ff")
 addNewCategory("Семья", "#b3b300")
 // Тестовые задания
-addNewTask('Сдать назад', '21:00', '10.3.2021', 'Работа')
-addNewTask('Пойти нахуй', '10:00', '6.3.2021', 'Работа')
-addNewTask('Пойти вперед', '10:00', '10.3.2021', 'Семья')
+addNewTask('Сдать назад', '21:00', '26.3.2021', 'Работа')
+addNewTask('Пойти нахуй', '10:00', '26.3.2021', 'Работа')
+addNewTask('Пойти вперед', '10:00', '26.3.2021', 'Семья')
 
 function categoriesAllPrint(){
 	printCategory($(".categories__contain"), $(".category-item.example"))
